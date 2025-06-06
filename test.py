@@ -1,4 +1,9 @@
-from main import calculate_raindrop_force, calculate_raindrop_type, classify_rain
+# Membros do Grupo:
+# - Nome: Diogo Oliveira Lima - 562559
+# - Nome: Lucas dos Reis Aquino - 562414
+# - Nome: Lucas Perez Bonato - 565356
+
+from functions import calculate_raindrop_force, calculate_raindrop_type, classify_rain
 
 def test_calculate_raindrop_force():
     assert calculate_raindrop_force(1.0, 2.0) == 2.0
@@ -24,13 +29,13 @@ def test_classify_rain():
     drops = [(1.0, 0.002), (1.0, 0.0021), (1.0, 0.0022)]
     assert classify_rain(drops) == "Heavy"
     # Classifica com gotas leves, médias e pesadas, porém contendo mais gotas pesadas
-    drops = [(1.0, 0.002), (1.0, 0.0021), (1.0, 0.001), (1.0, 0.001)]
+    drops = [(0.6, 0.001), (1.0, 0.0021), (1.0, 0.001), (1.0, 0.001)]
     assert classify_rain(drops) == "Light"
     # Classifica com gotas leves, médias e pesadas, porém contendo mais gotas médias
     drops = [(1.0, 0.0015), (1.0, 0.0016), (1.0, 0.001), (1.0, 0.002)]
     assert classify_rain(drops) == "Moderate"
     # Classifica com gotas leves, médias e pesadas, porém contendo mais gotas pesadas
-    drops = [(1.0, 0.002), (1.0, 0.0016), (1.0, 0.001), (1.0, 0.002)]
+    drops = [(1.0, 0.0022), (1.0, 0.0021), (1.0, 0.001), (1.0, 0.002)]
     assert classify_rain(drops) == "Heavy"
 
 test_calculate_raindrop_force()
